@@ -1,0 +1,46 @@
+.main-container{
+    width: 1366px;
+    height: 768px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #9D9D9D;
+   
+}
+
+img{
+height: 245px;
+width: 245px;
+border-radius: 150px;
+margin: 52px 326px 31px 53px;
+
+}
+
+.image{
+width: 624px;
+height: 391px;
+background: #F5F5F5;
+border-radius: 20px;
+opacity: 1; 
+
+}
+
+.header{
+font-size: large;
+width: 209px;
+height:24px;
+font-family: Roboto, Medium;
+font-size: 18px;
+margin-left: 71px;
+}
+
+.login-signUpBox{
+    margin-top: -61px;
+border: 2px solid #E4E4E4;
+width:  389px;
+height: 430px;
+background: #FFFFFF;
+border-radius: 6px;
+position: relative;
+right: 19%;
+}

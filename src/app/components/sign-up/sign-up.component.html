@@ -1,0 +1,47 @@
+<mat-card fxLayoutAlign="center center" style="  width:  389px;
+height: 430px;">
+    <form [formGroup]="signupForm">
+        <div class="user-name">
+            <div>
+            <mat-label >Full name</mat-label>
+
+        </div>
+                <mat-form-field class="fullname-content" appearance="outline">
+                    <input matInput placeholder="" formControlName="fullName" class="formControl">
+                    <mat-error >fullname required !</mat-error>
+
+                </mat-form-field>
+
+        </div>
+        <div class="email">
+            <mat-label style="height: 20px;" fxLayoutAlign="start">Email Id</mat-label>
+            <mat-form-field class="mail-content" appearance="outline">
+                <input type="email" matInput placeholder="" formControlName="email">
+                <mat-error >Email required !</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="password">
+            <mat-label fxLayoutAlign="start">Password</mat-label>
+            <mat-form-field class="password-content2" appearance="outline">
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder=""  formControlName="password">
+                <mat-error>password required !</mat-error>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide" style="border:none; outline:none; background:none;">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="mobile-Number">
+            <mat-label fxLayoutAlign="start">Mobile Number</mat-label>
+            <mat-form-field class="mobileNo-content3" appearance="outline">
+                <input matInput placeholder=""  formControlName="password">
+                <mat-error >Mobile Required !</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" (click)="onSubmit()" mat-flat-button
+                style="background-color:#A03037; border:none; color:#FFFFFF; border-radius:3px;"
+                class="button">Signup</button>
+        </div>
+    </form>
+</mat-card>

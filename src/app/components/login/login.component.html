@@ -1,0 +1,48 @@
+<mat-card fxLayout="row" fxLayoutAlign="center center" style="  width: 389px;
+height: 430px;">
+    <form [formGroup]="loginForm" >
+        <div class="email">
+
+            <div>
+                <mat-label>Email Id</mat-label>
+            </div>
+            <mat-form-field class="email" appearance="outline">
+                <input style="width: 252px;"  matInput placeholder="" formControlName="email">
+                <mat-error>valid email is required !</mat-error>
+    </mat-form-field>
+        </div>
+    <div class="password">
+        <div>
+            <mat-label>password</mat-label>
+        </div>
+        <mat-form-field class="password" >
+           
+            <input  style="width: 252px;"  matInput [type]="hide ? 'password' : 'text'"  formControlName="password">
+            <mat-error>password required !</mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide" style="border:none; background:none;outline:none">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <div class="forget">
+        <a>forget password?</a>
+    </div>
+    <div class="Sign-In-button">
+        <button  mat-flat-button color="warn" (click)="onSubmit()" style="background-color: #A03037;color:#FFFFFF;border: none; border-radius:3px;width: 252px;
+        height: 37px;" type="button" class="login" id="login">Login</button>
+
+
+    </div>
+    <div class="OR" fxLayoutAlign="center center">OR</div>
+
+    <mat-card-actions class="button" fxLayout fxLayoutGap="8px">
+        <button mat-button style="border: none; color:#FFFFFF; background-color: #4266B2;border-radius: 3px;width: 126px;
+        height: 37px;" class="fb" id="facebook">Facebook</button>
+        <button mat-button style="border: none;background: #F5F5F5 ; border-radius: 3px;width: 119px;
+        height: 37px;" class="Google">Google</button>
+    </mat-card-actions>
+
+   
+</form>
+</mat-card>
