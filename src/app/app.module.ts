@@ -17,6 +17,16 @@ import {MatIconModule} from '@angular/material/Icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatCardModule} from '@angular/material/card';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
+import { HeaderComponent } from './components/Header/header/header.component';
+import { FooterComponent } from './components/Footer/footer/footer.component';
+import { HomepageComponent } from './components/HomePage/homepage/homepage.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { GetallbookComponent } from './components/GetAllBook/getallbook/getallbook.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatChipsModule } from '@angular/material/chips';
+import { FilterPipe } from './filter.pipe';
+import { WishlistComponent } from './components/WishList/wishlist/wishlist.component';
+
 
 
 @NgModule({
@@ -24,7 +34,14 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    SignUpLoginComponent
+    SignUpLoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomepageComponent,
+    GetallbookComponent,
+    FilterPipe,
+    WishlistComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -40,7 +57,10 @@ import {  MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     FlexLayoutModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatChipsModule
     
 
   

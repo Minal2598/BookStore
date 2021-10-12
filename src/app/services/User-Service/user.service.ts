@@ -11,7 +11,7 @@ export class UserService {
 
   constructor(private httpService: HttpService ) { }
   
-  signUpUser(requestdata:any){
+  signUpUser(data:any){
     let httpAuthOptions = {
       headers:new Headers({
         'Content-Type' : 'application/json',
@@ -19,11 +19,11 @@ export class UserService {
 
       })
     };
-    console.log(requestdata);
-    return this.httpService.PostService(this.BaseUrl+'bookstore_user/registration',requestdata,false, httpAuthOptions)
+    console.log(data);
+    return this.httpService.PostService(this.BaseUrl+'/bookstore_user/add_wish_list'+'/'+data,data,false, httpAuthOptions)
   }
 
-  loginUser(requestdata:any){
+  loginUser(data:any){
     let httpAuthOptions = {
       headers:new Headers({
         'Content-Type' : 'application/json',
@@ -31,8 +31,8 @@ export class UserService {
 
       })
     };
-    console.log(requestdata);
-    return this.httpService.PostService(this.BaseUrl+'bookstore_user/login',requestdata,false, httpAuthOptions)
+    console.log(data);
+    return this.httpService.PostService(this.BaseUrl+'/bookstore_user/login',data,false,httpAuthOptions)
   }
   
 }

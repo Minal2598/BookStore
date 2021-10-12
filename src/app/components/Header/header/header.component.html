@@ -1,0 +1,34 @@
+<!-- <p>header works!</p> -->
+<header class = "header">
+    <div class = "mainhead">
+       <img class = "Img" style = "height: 24px;" src = ".\assets\education.svg">
+       <h2 class = "heading">BOOKSTORE</h2>
+       <div class = "search">
+            <button mat-icon-button class = "example-icon search-icon" mat-icon-button [matMenuTriggerFor] = "menu1">
+                <mat-icon style = "margin:0px;">search</mat-icon>
+            </button>
+            <mat-menu #menu1 = "matMenu" class = "search-toggle"  xPosition = "after"style = "width:800px" >
+                <span><input mat-menu-item class = "search-toggle-item" aria-label = "Search" type = "text" placeholder  =  "Search"></span>
+            </mat-menu> 
+            <input class = "searchInput" name="searchText" type = "text" placeholder = "Search" #search > 
+       </div>
+       <div class = "profile">
+           <mat-icon [matMenuTriggerFor] = "menu" class = "headerButton">person</mat-icon>
+           <mat-menu class = "profile" #menu = "matMenu" xPosition = "before">
+                <div class = "profileMenu">
+                    <h5 style = "cursor: pointer">Profile</h5>
+                    <h5 >My Orders</h5>
+                    <h5 style = "cursor: pointer">My Wishlist</h5>
+                </div>
+                <button class = "button" mat-stroked-button>
+                    Log Out
+                </button>
+            </mat-menu>
+           <h5 style = "margin: 0; color:#FCFCFC;" >Profile</h5>
+       </div>
+       <div class = "bookcart" >
+           <mat-icon  matBadgeSize="small" class = "headerButton"> local_grocery_store</mat-icon>
+           <h5 style = "margin: 0; color:#FCFCFC;" >Cart</h5>
+       </div>
+    </div>
+</header>
