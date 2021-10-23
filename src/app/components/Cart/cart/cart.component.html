@@ -1,0 +1,260 @@
+<!-- <p>cart works!</p> -->
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+
+
+    <div fxLayoutAign="center center" style="width:70%;">
+
+
+        <div class="head-link" fxLayout="row" fxLayoutAlign="start none">
+            <div routerLink="/home/book" style="cursor: pointer;"><b>Home</b></div><span>/My Cart</span>
+        </div>
+
+        <mat-toolbar style="background:#F5F5F5" fxLayout="row">
+            <div fxLayout="row" fxLayoutGap="2px">
+                <span class="title">My Cart<i>({{bookStoreArray.length}})</i></span>
+            </div>
+        </mat-toolbar>
+
+        <div style="border:2px solid #E4E4E4">
+            <div *ngFor="let book of bookStoreArray" fxLayout="row wrap" fxLayoutAlign="space-between center"
+                class="bodyBox">
+
+                <div style="margin-left:36px;" fxLayoutGap="40px" fxLayout="row wrap" fxLayoutAlign="start center">
+
+                    <div>
+                        <img src=".\assets\Books\Image 11.png" alt="" class="image">
+                    </div>
+
+                    <div class="pricebox">
+
+                        <div class="details-content" fxLayout="column" fxLayoutAlign="start none">
+
+                            <div style="margin-left:15px;" fxLayoutGap="20px">
+
+                                <div fxLayout="column">
+                                    <strong>{{book.product_id.bookName}}</strong>
+                                    <a>by {{book.product_id.author}}</a>
+
+                                </div>
+
+                            </div>
+
+
+                            <div style="margin-left:15px; width:60px; height:20px; " fxLayout="row wrap"
+                                fxLayoutAlign="space-between center">
+                                <b>Rs. {{book.product_id.price}}</b>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutGap="30px">
+                                <div class="quantitiy" fxLayout="row">
+                                    <img class="circle" src=".\assets\Books\remove_circle_outline_black_24dp.svg"
+                                        style="cursor: pointer;">
+                                    <div class="inputBox" fxLayoutAlign="center center"><b>1</b></div>
+                                    <img class="circle" src=".\assets\Books\add_circle_outline_black_24dp.svg"
+                                        style="color:pointer;">
+                                </div>
+
+                                <button mat-raised-button (click)="remove(book)" matTooltip="Delete from wish-list !"
+                                    style="margin-right:40px; cursor:pointer;">Remove</button>
+                            </div>
+                        </div> 
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div fxLayoutAlign="end" style="padding-right:20px;">
+                <button mat-raised matTooltip="Place Order!" class="button1" *ngIf="displayButton"
+                    (click)="addressToggle()"
+                    style="background:#3371B5; border:none; color:#FFFFFF; border-radius:3px;cursor:pointer;margin-bottom:40px;margin-right:10%;">
+                    Place Order</button>
+            </div>
+            <div *ngIf="!displayButton"></div>
+
+
+        </div>
+
+        <!-- Address Details-->
+        <div class="address" *ngIf="displayAddress">
+            <mat-toolbar style="background:#F5F5F5;margin-top:30px;" fxLayout="row">
+                <div fxLayout="row" fxLayoutGap="2px">
+                    <span class="title">Address Details</span>
+                </div>
+            </mat-toolbar>
+        </div>
+
+        <!--CustomerDetails-->
+        <div style="border:1px solid #DCDCDC;margin-top:30px;" *ngIf="!displayAddress" fxLayout="column">
+
+
+
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+
+                <form [formGroup]="BookingForm" class="customerAddress" fxLayout="column wrap" fxLayoutGap="30px;">
+
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+
+                        <span>
+                            <h2>Customer Details</h2>
+                        </span>
+                        <div class="newAddress" fxFlex="center">
+                            <button mat-raised-button *ngIf="displayContinueButton" class="button1"
+                                style="background:none;border-radius:3px;border:1px solid #A03037;color:#A03037;">Add
+                                New Address</button>
+                        </div>
+
+                    </div>
+
+
+                    <!--Name & Number-->
+                    <div div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                        <div class="fullName">
+                            <div>
+                                <mat-label>FullName</mat-label>
+                            </div>
+                            <mat-form-field appearance="outline" class="content" id="email">
+                                <input type="Text" matInput placeholder="" formControlName="fullName">
+                                <mat-error fxLayoutAlign="end">Full Name required !</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="phoneNumber">
+                            <div>
+                                <mat-label>Mobile Number</mat-label>
+                            </div>
+                            <mat-form-field appearance="outline" class="content" id="phonenumber">
+                                <input type="tel" matInput placeholder="" formControlName="phonenumber">
+                                <mat-error fxLayoutAlign="end">Mobile Number required !</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!--Address-->
+                    <div>
+                        <div>
+                            <mat-label>AddressType</mat-label>
+                        </div>
+                        <mat-form-field placeholder="Type of Address" class="content" appearance="outline">
+                            <mat-select formControlName="addressType">
+                                <mat-option *ngFor="let type of addressType" [value]="type">
+                                    {{type}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="address" fxLayout="column">
+                        <div>
+                            <mat-label>Address</mat-label>
+                        </div>
+                        <mat-form-field appearance="outline" id="address">
+                            <input type="text" matInput placeholder="" formControlName="fullAddress">
+                            <mat-error fxLayoutAlign="end">Address required !</mat-error>
+                        </mat-form-field>
+
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div class="city">
+                                <div>
+                                    <mat-label>city/town</mat-label>
+                                </div>
+                                <mat-form-field appearance="outline" class="content" id="city">
+                                    <input type="text" matInput placeholder="" formControlName="city">
+                                    <mat-error fxLayoutAlign="end">city/town is required !</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="state">
+                                <div>
+                                    <mat-label>State</mat-label>
+                                </div>
+                                <mat-form-field appearance="outline" class="content" id="state">
+                                    <input type="tel" matInput placeholder="" formControlName="state">
+                                    <mat-error fxLayoutAlign="end">Mobile Number required !</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div fxFlexAlign="end" style="margin-right:-5%;">
+                        <button type="submit" mat-raised-button *ngIf="displayContinueButton" matTooltip="Continue"
+                            (click)="submit()"
+                            style="background:#3371B5; border:none; color:#FFFFFF; border-radius:3px;cursor:pointer;margin-bottom:40px;"
+                            class="button1">
+                            Continue</button>
+                    </div>
+
+                </form>
+                <div fxLayout="column wrap" fxLayoutGap="280%" style="margin-right:40px;">
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <!--Order Summary-->
+        <div class="summary" *ngIf="displayCart" fxLayout="row"
+            style="margin-top:30px;border:1px solid #DCDCDC;Margin-bottom:30px;">
+            <mat-toolbar fxLayout="row">
+                <div fxLayout="row" fxLayoutGap="2px">
+                    <span class="title">Order Summary</span>
+                </div>
+            </mat-toolbar>
+        </div>
+
+        <div *ngIf="!displayCart" style="border:1px solid #DCDCDC;margin-top:30px;margin-bottom:30px;">
+
+            <div fxLayout="column">
+
+                <div *ngFor="let book of bookStoreArray" fxLayout="row wrap" fxLayoutAlign="space-between center"
+                    class="bodyBox">
+
+                    <div style="margin-left:36px;" fxLayoutGap="40px" fxLayout="row wrap" fxLayoutAlign="start center">
+
+                        <div>
+                            <img src=".\assets\Books\Image 11.png" alt="" class="image">
+                        </div>
+
+                        <div class="pricebox">
+
+                            <div class="details-content" fxLayout="column" fxLayoutAlign="start none">
+
+                                <div style="margin-left:15px;" fxLayoutGap="20px">
+
+                                    <div fxLayout="column">
+                                        <strong>{{book.product_id.bookName}}</strong>
+                                        <a>by {{book.product_id.author}}</a>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div style="margin-left:15px; width:60px; height:20px; " fxLayout="row wrap"
+                                    fxLayoutAlign="space-between center">
+                                    <b>Rs. {{book.product_id.price}}</b>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+                    <button type="submit" mat-raised-button *ngIf="!displayContinueButton" matTooltip="Continue"
+                        (click)="checkout()"
+                        style="background:#3371B5; border:none; color:#FFFFFF; border-radius:3px;cursor:pointer;margin-left:50%;margin-bottom:30px;"
+                        class="button1">Check Out</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

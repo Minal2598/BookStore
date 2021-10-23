@@ -26,6 +26,23 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
 import { FilterPipe } from './filter.pipe';
 import { WishlistComponent } from './components/WishList/wishlist/wishlist.component';
+import { CartComponent } from './components/Cart/cart/cart.component';
+import { AuthguardServiceService } from './services/AuthGuardService/authguard-service.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDividerModule} from '@angular/material/divider';
+import { PlaceOrderComponent } from './components/PlaceOrder/place-order/place-order.component';
+import { BookDetailComponent } from './components/BookDetail/book-detail/book-detail.component';
+import { RatingComponent } from './components/Ratings/rating/rating.component';
+import { AdminSignupComponent } from './components/Admin-SignUp/admin-signup/admin-signup.component';
+import { AdminLoginComponent } from './components/Admin-login/admin-login/admin-login.component';
+import { AdminHeaderComponent } from './components/Admin-header/admin-header/admin-header.component';
+import { DashboardAdminComponent } from './components/Dashboard/dashboard-admin/dashboard-admin.component';
+
 
 
 
@@ -40,7 +57,15 @@ import { WishlistComponent } from './components/WishList/wishlist/wishlist.compo
     HomepageComponent,
     GetallbookComponent,
     FilterPipe,
-    WishlistComponent
+    WishlistComponent,
+    CartComponent,
+    PlaceOrderComponent,
+    BookDetailComponent,
+    RatingComponent,
+    AdminSignupComponent,
+    AdminLoginComponent,
+    AdminHeaderComponent,
+    DashboardAdminComponent
    
   ],
   imports: [
@@ -60,12 +85,16 @@ import { WishlistComponent } from './components/WishList/wishlist/wishlist.compo
     MatSnackBarModule,
     MatMenuModule,
     MatPaginatorModule,
-    MatChipsModule
+    MatChipsModule,MatToolbarModule,MatTooltipModule,
+    MatExpansionModule,MatSelectModule,
+    MatDialogModule,MatRadioModule,MatDividerModule
+
+
     
 
   
   ],
-  providers: [],
+  providers: [AuthguardServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       (respone:any) => {console.log("login Response",respone);
 
       localStorage.setItem("token",respone.result.accessToken);
+      this.router.navigateByUrl('/home'),
       
       this.snackBar.open("Login successfull", '', { duration: 2000,});
     },
